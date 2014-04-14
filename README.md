@@ -82,7 +82,7 @@ To use Backbone.DataTableView you only need to provide
 the following classes.
 
 | Class      | Button|
-|::--------::|-------|
+| --------   |-------|
 | bdt-add    | Add   |
 | bdt-edit   | Edit  |
 | bdt-delete | Delete|

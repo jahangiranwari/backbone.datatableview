@@ -1,7 +1,7 @@
 {
   "name": "backbone.datatableview",
-  "version": "0.0.1",
-  "description": "Backbone CRUD Tables",
+  "version": "0.2",
+  "description": "Simple CRUD interface for your Backbone collection",
   "main": "index.js",
   "dependencies": {
     "grunt": "~0.4.1"
@@ -18,7 +18,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "file:///home/janwari/Dropbox/tmp/BackTables/"
+    "url": "http://jahangiranwari.github.io/backbone.datatableview/"
   },
   "author": "Jahangir Anwari"
 }
