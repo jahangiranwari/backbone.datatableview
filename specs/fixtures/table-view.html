@@ -1,0 +1,29 @@
+<div class="modal hide fade">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">×</button>
+    <h3><%= this.model.isNew() ? 'Add' : 'Edit'  %></h3>
+  </div>
+
+  <div class="modal-body">
+    <div class="errors"></div>
+    <form>
+      <div class="span">
+        <fieldset>
+          <label for="name">Name</label>
+          <input class="span2" type="text" name="name" value="<%= name %>">
+        </fieldset>
+      </div>
+
+      <div class="span">
+        <fieldset>
+          <label for="model">Age</label>
+          <input class="span2" type="text" name="age" value="<%= age %>">
+        </fieldset>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button class="btn pull-left bdt-close" data-dismiss="modal">Close</button>
+    <button class="btn btn-primary pull-left bdt-save">Save</button>
+  </div>
+</div>
