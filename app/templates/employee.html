@@ -1,0 +1,49 @@
+<div class="modal fade modal-container">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3><%= this.model.isNew() ? 'Add' : 'Edit'  %></h3>
+  </div>
+
+  <div class="modal-body">
+    <div class="errors"></div>
+    <form>
+      <div class="span">
+        <fieldset>
+          <label for="firstName">First Name</label>
+          <input class="span2" type="text" name="firstName" value="<%= firstName %>">
+        </fieldset>
+      </div>
+      <div class="span">
+        <fieldset>
+          <label for="lastName">Last Name</label>
+          <input class="span2" type="text" name="lastName" value="<%= lastName %>">
+        </fieldset>
+      </div>
+      <div class="span">
+        <fieldset>
+          <label for="gender">Gender</label>
+          <input class="span2" type="text" name="gender" value="<%= gender %>">
+        </fieldset>
+      </div>
+
+      <div class="span">
+        <fieldset>
+          <label for="email">Email</label>
+          <input class="span3" type="text" name="email" value="<%= email %>">
+        </fieldset>
+      </div>
+
+      <div class="span">
+        <fieldset>
+          <label for="startDate">Start Date</label>
+          <input class="span3" type="text" name="startDate" value="<%= new Date(startDate).toDateString() %>">
+        </fieldset>
+      </div>
+
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button class="btn pull-left bdt-close" data-dismiss="modal">Close</button>
+    <button class="btn btn-primary pull-left bdt-save">Save</button>
+  </div>
+</div>

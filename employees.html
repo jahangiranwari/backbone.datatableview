@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Backbone.DataTableView demo -- GitHub projects</title>
+    <title>Backbone.DataTableView demo -- Employees list</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link href="vendor/stylesheets/bootstrap.min.css" rel="stylesheet"/>
     <link href="vendor/stylesheets/bootstrap-responsive.min.css" rel="stylesheet"/>
+    <link href="vendor/stylesheets/bootstrap.min.css" rel="stylesheet"/>
     <link href="vendor/stylesheets/DT_bootstrap.css" rel="stylesheet"/>
     <link href="app/stylesheets/demo.css" rel="stylesheet"/>
+
   </head>
   <body>
 
@@ -21,13 +22,13 @@
           <a class="brand" href="#">Backbone DataTableView</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
-              <li class="active">
+              <li class="">
                 <a href="index.html">Repositories</a>
               </li>
               <li class="">
                 <a href="companies.html">Companies</a>
               </li>
-              <li class="">
+              <li class="active">
                 <a href="employees.html">Employees</a>
               </li>
               <li class="">
@@ -43,52 +44,41 @@
       <div class="row">
 
         <div class="page-header">
-          <h1>Github projects in JavaScript, Ruby and Python <br><small>for 2013 based on number of pushes</small></h1>
+          <h1>Employees List</h1>
         </div>
 
+
         <ul class="nav nav-tabs">
-          <li class="active"><a href="#simple-table" data-toggle="tab">Simple</a></li>
-          <li><a href="#add-only" data-toggle="tab">Add</a></li>
-          <li><a href="#edit-only" data-toggle="tab">Edit</a></li>
-          <li><a href="#delete-only" data-toggle="tab">Delete</a></li>
+          <li class="active"><a href="#minimal-config" data-toggle="tab">Minimal configuration</a></li>
+          <li><a href="#with-before-delete" data-toggle="tab">Before delete</a></li>
+          <li><a href="#with-render-errors" data-toggle="tab">Custom errors</a></li>
+          <li><a href="#with-serialize" data-toggle="tab">Custom serialization</a></li>
         </ul>
 
         <div class="tab-content">
-          <div id="simple-table" class="example tab-pane active">
-            <h2>Simple table</h2>
+          <div id="minimal-config" class="example tab-pane active">
+            <h2>Minimal configuration</h2>
           </div>
 
-          <div id="add-only" class="example tab-pane">
-            <h2>Table with only Add button</h2>
+          <div id="with-serialize" class="example tab-pane">
+            <h2>With custom serialize method </h2>
           </div>
 
-
-          <div id="edit-only" class="example tab-pane">
-            <h2>Table with only Edit button</h2>
+          <div id="with-before-delete" class="example tab-pane">
+            <h2>With beforeDelete method </h2>
           </div>
 
-          <div id="delete-only" class="example tab-pane">
-            <h2>Table with only Delete button</h2>
+          <div id="with-render-errors" class="example tab-pane">
+            <h2>With custom error render method </h2>
           </div>
         </div>
+
 
 
         <p class="data-source">
           <span class="alert">
-            <em>Data source:</em> <a href="http://www.githubarchive.org/">Github Archive</a>, a dataset of Github events queryable using <a href="https://developers.google.com/bigquery/">Google BigQuery</a>.
-          </span>
+            <em>Data source:</em> <a href="http://www.databasetestdata.com/">www.databasetestdata.com</a></span>
         </p>
-        <pre>$ bq  --format json query "SELECT repository_language, repository_description, repository_homepage, repository_name, repository_url
-FROM [githubarchive:github.timeline]
-WHERE type='PushEvent'
-AND (
-repository_language='JavaScript' OR
-repository_language='Ruby' OR
-repository_language='Python'
-)
-AND PARSE_UTC_USEC(repository_created_at) >= PARSE_UTC_USEC('2013-01-01 00:00:00')
-AND PARSE_UTC_USEC(repository_created_at) < PARSE_UTC_USEC('2013-08-30 00:00:00')
-LIMIT 100"</pre>
       </div>
     </div>
 
@@ -100,36 +90,38 @@ LIMIT 100"</pre>
     <script type="text/javascript" src="vendor/javascripts/bootstrap.min.js"></script>
     <script type="text/javascript" src="vendor/javascripts/jquery.dataTables.min.js"></script>
 
-
     <script type="text/javascript" src="backbone.datatableview.min.js"></script>
     <script type="text/javascript" src="app/javascripts/backbone.localStorage-min.js"></script>
     <script type="text/javascript" src="app/javascripts/utils.js"></script>
 
-    <script type="text/javascript" src="app/javascripts/repository.js"></script>
-    <script type="text/javascript" src="app/javascripts/data/repositories.js"></script>
+    <script type="text/javascript" src="app/javascripts/employee.js"></script>
+    <script type="text/javascript" src="app/javascripts/data/employees.js"></script>
     <script type="text/javascript" src="app/javascripts/bootstrap2.pagination.js"></script>
+
 
     <script type="text/javascript">
       var collection, view;
-      collection = new App.Collections.Repository();
-      if (localStorage.getItem("datatables-backbone-repositories") === null) {
-        collection.add(App.Data.Repositories);
+      collection = new App.Collections.Employee();
+      if (localStorage.getItem("datatables-backbone-employee") === null) {
+        collection.add(App.Data.Employees);
         collection.each(function(model) {
           model.save()
         });
       }
 
-      var view = new App.Views.Repositories({collection: collection});
-      $('#simple-table').append(view.render().el);
+      var view = new App.Views.Employees({collection: collection});
+      $('#minimal-config').append(view.render().el);
 
-      var addView = new App.Views.RepositoriesAddOnly({collection: collection});
-      $('#add-only').append(addView.render().el);
 
-      var deleteView = new App.Views.RepositoriesDeleteOnly({collection: collection});
-      $('#delete-only').append(deleteView.render().el);
+      var view = new App.Views.EmployeesWithBeforeDelete({collection: collection});
+      $('#with-before-delete').append(view.render().el);
 
-      var editView = new App.Views.RepositoriesEditOnly({collection: collection});
-      $('#edit-only').append(editView.render().el);
+
+      var view = new App.Views.EmployeesWithSerialize({collection: collection});
+      $('#with-serialize').append(view.render().el);
+
+      var view = new App.Views.EmployeesWithRenderError({collection: collection});
+      $('#with-render-errors').append(view.render().el);
 
     </script>
 

@@ -3,41 +3,69 @@
   <head>
     <title>Backbone.DataTableView demo -- GitHub projects</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link href="vendor/stylesheets/bootstrap.min.css" rel="stylesheet"/>
-    <link href="vendor/stylesheets/bootstrap-responsive.min.css" rel="stylesheet"/>
+    <link href="vendor/stylesheets/bootstrap3.min.css" rel="stylesheet"/>
     <link href="vendor/stylesheets/DT_bootstrap.css" rel="stylesheet"/>
     <link href="app/stylesheets/demo.css" rel="stylesheet"/>
+    <style>
+
+      *[id*='DataTables_Table_'] label {
+        font-weight: normal;
+      }
+
+      .dataTables_length select {
+        border: 1px solid #CCCCCC;
+        border-radius: 3px 3px 3px 3px;
+        padding: 4px;
+      }
+
+      .dataTables_filter input {
+        border: 1px solid #CCCCCC;
+        border-radius: 4px 4px 4px 4px;
+        height: 30px;
+        vertical-align: middle;
+      }
+
+      .dataTables_wrapper > .col-lg-5 {
+        padding-left: 0;
+      }
+
+      .pagination {
+        margin-top: 0;
+      }
+
+    </style>
   </head>
   <body>
 
-    <div class="navbar navbar-inverse ">
-      <div class="navbar-inner">
-        <div class="container">
-          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+    <header class="navbar navbar-inverse" role="banner">
+      <div class="container">
+        <div class="navbar-header">
+          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="brand" href="#">Backbone DataTableView</a>
-          <div class="nav-collapse collapse">
-            <ul class="nav">
-              <li class="active">
-                <a href="index.html">Repositories</a>
-              </li>
-              <li class="">
-                <a href="companies.html">Companies</a>
-              </li>
-              <li class="">
-                <a href="employees.html">Employees</a>
-              </li>
-              <li class="">
-                <a href="bootstrap3.html">Bootstrap 3</a>
-              </li>
-            </ul>
-          </div>
+          <a href="#" class="navbar-brand">Backbone DataTableView</a>
         </div>
+        <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+          <ul class="nav navbar-nav">
+            <li>
+              <a href="index.html">Repositories</a>
+            </li>
+            <li>
+              <a href="companies.html">Companies</a>
+            </li>
+            <li>
+              <a href="employees.html">Employees</a>
+            </li>
+            <li class="active">
+              <a href="bootstrap3.html">Bootstrap 3</a>
+            </li>
+          </ul>
+        </nav>
       </div>
-    </div>
+    </header>
 
     <div class="container">
       <div class="row">
@@ -54,24 +82,24 @@
         </ul>
 
         <div class="tab-content">
-          <div id="simple-table" class="example tab-pane active">
+
+          <div id="simple-table" class="example tab-pane fade in active">
             <h2>Simple table</h2>
           </div>
 
-          <div id="add-only" class="example tab-pane">
+          <div id="add-only" class="example tab-pane fade">
             <h2>Table with only Add button</h2>
           </div>
 
 
-          <div id="edit-only" class="example tab-pane">
+          <div id="edit-only" class="example tab-pane fade">
             <h2>Table with only Edit button</h2>
           </div>
 
-          <div id="delete-only" class="example tab-pane">
+          <div id="delete-only" class="example tab-pane fade">
             <h2>Table with only Delete button</h2>
           </div>
         </div>
-
 
         <p class="data-source">
           <span class="alert">
@@ -97,7 +125,7 @@ LIMIT 100"</pre>
     <script type="text/javascript" src="vendor/javascripts/jquery-1.7.1.min.js"></script>
     <script type="text/javascript" src="vendor/javascripts/underscore-min.js"></script>
     <script type="text/javascript" src="vendor/javascripts/backbone-min.js"></script>
-    <script type="text/javascript" src="vendor/javascripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="vendor/javascripts/bootstrap3.min.js"></script>
     <script type="text/javascript" src="vendor/javascripts/jquery.dataTables.min.js"></script>
 
 
@@ -105,9 +133,9 @@ LIMIT 100"</pre>
     <script type="text/javascript" src="app/javascripts/backbone.localStorage-min.js"></script>
     <script type="text/javascript" src="app/javascripts/utils.js"></script>
 
-    <script type="text/javascript" src="app/javascripts/repository.js"></script>
+    <script type="text/javascript" src="app/javascripts/bootstrap3.js"></script>
     <script type="text/javascript" src="app/javascripts/data/repositories.js"></script>
-    <script type="text/javascript" src="app/javascripts/bootstrap2.pagination.js"></script>
+    <script type="text/javascript" src="app/javascripts/bootstrap3.pagination.js"></script>
 
     <script type="text/javascript">
       var collection, view;
@@ -119,16 +147,16 @@ LIMIT 100"</pre>
         });
       }
 
-      var view = new App.Views.Repositories({collection: collection});
+      var view = new App.Views.T3Repositories({collection: collection});
       $('#simple-table').append(view.render().el);
 
-      var addView = new App.Views.RepositoriesAddOnly({collection: collection});
+      var addView = new App.Views.T3RepositoriesAddOnly({collection: collection});
       $('#add-only').append(addView.render().el);
 
-      var deleteView = new App.Views.RepositoriesDeleteOnly({collection: collection});
+      var deleteView = new App.Views.T3RepositoriesDeleteOnly({collection: collection});
       $('#delete-only').append(deleteView.render().el);
 
-      var editView = new App.Views.RepositoriesEditOnly({collection: collection});
+      var editView = new App.Views.T3RepositoriesEditOnly({collection: collection});
       $('#edit-only').append(editView.render().el);
 
     </script>

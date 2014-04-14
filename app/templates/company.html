@@ -1,0 +1,56 @@
+<div class="modal fade modal-container">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3><%= this.model.isNew() ? 'Add' : 'Edit'  %></h3>
+  </div>
+
+  <div class="modal-body">
+    <div class="errors"></div>
+    <form>
+      <div class="span">
+        <fieldset>
+          <label for="company_name">Company Name</label>
+          <input class="span2" type="text" name="company_name" value="<%= company_name %>">
+        </fieldset>
+      </div>
+      <div class="span">
+        <fieldset>
+          <label for="category_name">Category Name</label>
+          <input class="span2" type="text" name="category_name" value="<%= category_name %>">
+        </fieldset>
+      </div>
+      <div class="span">
+        <fieldset>
+          <label for="address">Address</label>
+          <input class="span2" type="text" name="address" value="<%= address %>">
+        </fieldset>
+      </div>
+
+      <div class="span">
+        <fieldset>
+          <label for="address2">Address2</label>
+          <input class="span3" type="text" name="address2" value="<%= address2 %>">
+        </fieldset>
+      </div>
+
+      <div class="span">
+        <fieldset>
+          <label for="hiring">Hiring</label>
+          <input class="span3" type="text" name="hiring" value="<%= hiring %>">
+        </fieldset>
+      </div>
+
+      <div class="span">
+        <fieldset>
+          <label for="url">URL</label>
+          <input class="span3" type="text" name="url" value="<%= url %>">
+        </fieldset>
+      </div>
+
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button class="btn pull-left bdt-close" data-dismiss="modal">Close</button>
+    <button class="btn btn-primary pull-left bdt-save">Save</button>
+  </div>
+</div>

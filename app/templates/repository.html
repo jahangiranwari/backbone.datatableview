@@ -1,0 +1,49 @@
+<div class="modal fade modal-container">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">×</button>
+    <h3><%= this.model.isNew() ? 'Add' : 'Edit'  %></h3>
+  </div>
+
+  <div class="modal-body">
+    <div class="errors"></div>
+    <form>
+      <div class="span">
+        <fieldset>
+          <label for="repository_name">Name</label>
+          <input class="span2" type="text" name="repository_name" value="<%= repository_name %>">
+        </fieldset>
+      </div>
+      <div class="span">
+        <fieldset>
+          <label for="repository_description">Description</label>
+          <input class="span2" type="text" name="repository_description" value="<%= repository_description %>">
+        </fieldset>
+      </div>
+      <div class="span">
+        <fieldset>
+          <label for="repository_language">Language</label>
+          <input class="span2" type="text" name="repository_language" value="<%= repository_language %>">
+        </fieldset>
+      </div>
+
+      <div class="span">
+        <fieldset>
+          <label for="repository_homepage">Homepage</label>
+          <input class="span3" type="text" name="repository_homepage" value="<%= repository_homepage %>">
+        </fieldset>
+      </div>
+
+      <div class="span">
+        <fieldset>
+          <label for="repository_url">Homepage</label>
+          <input class="span3" type="text" name="repository_url" value="<%= repository_url %>">
+        </fieldset>
+      </div>
+
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button class="btn pull-left bdt-close" data-dismiss="modal">Close</button>
+    <button class="btn btn-primary pull-left bdt-save">Save</button>
+  </div>
+</div>

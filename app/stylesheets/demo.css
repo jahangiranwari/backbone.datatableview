@@ -1,0 +1,22 @@
+h2 {
+  margin: 2% 1%;
+  color: steelblue;
+}
+
+.example {
+  margin: 2% 1%;
+}
+
+.data-source {
+  margin: 5% 0 2% 0%
+}
+
+.bdt-add {
+  margin-left: 5px;
+  float: right;
+}
+
+.edit-delete{
+  text-align: center !important;
+  min-width: 50px;
+}
