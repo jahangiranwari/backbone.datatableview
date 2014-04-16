@@ -1,7 +1,7 @@
 Backbone.DataTableView
 ======================
 
-A Backbone View that provides an easy, flexible and way to provide a CRUD interface for your Backbone collection.
+A Backbone View that provides a simple, easy and flexible way to create a CRUD interface for your Backbone collection.
 
 Features
 --------
@@ -14,7 +14,7 @@ Features
 
 Additional Features
 -------------------
-Since Backbone.DataTableView uses *jQuery DataTables* to render the collection
+Since Backbone.DataTableView uses *jQuery DataTables* to render the collection,
 we get all the goodies that *DataTables* provides for free.
 
 * Sorting
@@ -78,7 +78,7 @@ To use Backbone.DataTableView you only need to provide
 
 ## CSS Classes
 
-**B**ackbone.**D**ata**T**ableView has a set of pre-defined event listeners attached to
+<b>B</b>ackbone.<b>D</b>ata<b>T</b>ableView has a set of predefined event listeners attached to
 the following classes.
 
 | Class      | Button|
@@ -281,12 +281,12 @@ $('#container').append(view.render().el);
 
 
 
-#### `renderError` TODO ... Need to clean this up
+#### `renderError` 
 
-By default Backbone.DataTableView displays all errors inside <div class="errors">.
+By default Backbone.DataTableView displays all errors inside &lt;div class="errors">.
 
-* For just a single error it displays the error inside a <p class="alert alert-warning"> tag
-* For multiple errors it displays each errors in a <li>
+* For just a single error it displays the error inside a &lt;p class="alert alert-warning">
+* For multiple errors it displays each error inside a &lt;li>
 
 You can override the default error rendering to provide your own.
 ```javascript
