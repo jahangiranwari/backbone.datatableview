@@ -361,7 +361,7 @@ View = Backbone.DataTableView.extend({
   ........
 });
 ```
-**Note:** `bdt-add` class must be defined in your custom delete button.
+**Note:** `bdt-delete` class must be defined in your custom delete button.
 
 Dependencies
 ------------
